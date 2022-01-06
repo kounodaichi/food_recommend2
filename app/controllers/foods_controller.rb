@@ -16,8 +16,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @food.update!(food_params)
@@ -28,10 +27,11 @@ class FoodsController < ApplicationController
     @food.destroy!
     redirect_to root_path
   end
+
   private
 
   def food_params
-    params.require(:food).permit(:name,:comment)
+    params.require(:food).permit(:name, :comment)
   end
 
   def set_post
