@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+  before_action :set_food, only: %i[edit update destroy]
   def index
     @foods = Food.includes(:user).order(:created_at)
   end
@@ -34,7 +35,7 @@ class FoodsController < ApplicationController
     params.require(:food).permit(:name, :comment)
   end
 
-  def set_post
+  def set_food
     # 「自分の投稿」の中から URL の :id に対応する投稿を探す
     # 「他人の投稿」の場合はエラーを出す
     @food = current_user.foods.find(params[:id])
