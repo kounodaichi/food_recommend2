@@ -2,7 +2,11 @@ ja:
   activerecord:
     models:
       food: 料理
+      like: いいね
     attributes:
       food:
         comment: コメント
         user: ユーザー
+      like:
+        user: ユーザー
+        food: 料理
